@@ -2,11 +2,15 @@ from setuptools import find_packages, setup
 from typing import List
 
 def get_requirements(file_path:str)->List[str]:
-    requirements=[]
+    requirement=[]
     with open(file_path) as file_obj:
         file_obj.readlines()
-        [req.replace("\n","")for req in requirements]
-        return requirements
+        requirement=[req.replace("\n","")for req in requirement]
+
+        if HYPHEN_E_DOT in requirement:
+            requirement.remove(HYPHEN_E_DOT)
+            
+        return requirement
 
 
 setup(
